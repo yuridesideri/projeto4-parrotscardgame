@@ -1,0 +1,11 @@
+#new-game{
+    display: flex;
+}
+
+#in-game{
+    display: hidden;
+}
+
+#end-game{
+    display: hidden;
+}
