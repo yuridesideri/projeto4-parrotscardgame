@@ -271,10 +271,14 @@ img{
 }
 
 
-/* js animation */
+/* js animation & properties change */
 
 .red-alert-animation{
     animation: red-alert;
     animation-timing-function: ease-out;
     animation-duration: 1s;
+}
+
+.reset-display{
+    display: none;
 }

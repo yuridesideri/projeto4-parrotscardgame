@@ -1,9 +1,38 @@
 const mainInput = document.querySelector("input");
 const mainButton = document.querySelector(".game-settings button");
 
+function shuffleArray(array)
+{
+    let tmp;
+    let num;
+    for (let i = 0; i < array.length; i++)
+    {
+        num = Math.floor(Math.random() * array.length);
+        tmp = array[i];
+        array[i] = array[num];
+        array[num] = tmp;
+    }
+    return array;
+}
+
+function createCards(cardNumber)
+{
+    let cards = new Array(cardNumber);
+    for (let i = 0; i < cardNumber; i = i + 2)
+    {
+        cards[i] = [`<div class='in-game-card front card${i/2}'><img src='arquivos/front.png' alt=''></div>`, `<div class='in-game-card back card${i/2}'><img src='arquivos/gif${i/2}.png' alt=''></div>`];
+        cards[i + 1] = [`<div class='in-game-card front card${i/2}'><img src='arquivos/front.png' alt=></div>`, `<div class='in-game-card back card${i/2}'><img src='arquivos/gif${i/2}.png' alt=''></div>`];
+    }
+    const shuffledArray = shuffleArray(cards);
+    return shuffledArray;
+}
+
 function startGame(cardNumber)
 {
     console.log("O Jogo começou!");
+    document.querySelector("#in-game").style.display = 'block';
+    let cards = createCards(cardNumber);
+    printCards(cards);
 }
 
 function helpStartGame()
@@ -20,8 +49,9 @@ function helpStartGame()
 function checkStart()
 {
     let cardNumber = mainInput.value;
-    if (cardNumber >= 4 && cardNumber <= 14)
+    if (cardNumber >= 4 && cardNumber <= 14 && cardNumber % 2 == 0)
     {
+        document.querySelector("#new-game").style.display = 'none';
         return startGame(cardNumber);
     }
     else 
