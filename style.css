@@ -3,6 +3,17 @@
     --text-color: #75B79E;
     --card-color: #A7E9AF;
     --card-border-color: #99CEA8;
+    --show-up-animation: 1s;
+}
+
+@keyframes show-up {
+    0% {transform: translateY(-500px);}
+    100% {transform: translate(0px);}
+}
+
+@keyframes red-alert{
+    50%{color: red;}
+    100% {color: none;}
 }
 
 #new-game{
@@ -72,8 +83,10 @@ img{
     background-color: rgba(0, 0, 0, 0.3);
 }
 
-
 .game-settings{
+    animation: show-up;
+    animation-duration: var(--show-up-animation);
+    animation-timing-function: ease-out;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -89,13 +102,14 @@ img{
     border: 1px solid var(--card-border-color);
 }
 
-.game-settings>#difficulty{
+.game-settings>.difficulty{
     color: var(--text-color);
     font-weight: 600;
     font-size: 18px;
     text-align: center;
     margin-top: 10px;
 }
+
 
 .game-settings>input{
     width: 50%;
@@ -207,6 +221,9 @@ img{
 }
 
 .end-game-box{
+    animation: show-up;
+    animation-duration: var(--show-up-animation);
+    animation-timing-function: ease-out;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -254,3 +271,10 @@ img{
 }
 
 
+/* js animation */
+
+.red-alert-animation{
+    animation: red-alert;
+    animation-timing-function: ease-out;
+    animation-duration: 1s;
+}
