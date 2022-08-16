@@ -6,7 +6,7 @@
 }
 
 #new-game{
-    display: none;
+    display: block;
     width: 100%;
     height: 100%;
 }
@@ -86,6 +86,7 @@ img{
     background-color: var(--back-color);
     border-radius: 5px;
     justify-content: space-between;
+    border: 1px solid var(--card-border-color);
 }
 
 .game-settings>#difficulty{
@@ -133,24 +134,9 @@ img{
 
 
 #in-game{
-
-    display: block;
+    display: none;
 }
 
-.in-game-card{
-    width: 117px;
-    height: 146px;
-    background-color: var(--card-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right:17px;
-    margin-left:17px;
-    margin-bottom: 34px;
-    box-sizing: border-box;
-    border: 1px solid var(--card-border-color);
-    border-radius: 5px;
-}
 
 .in-game-background{
     display:flex;
@@ -180,9 +166,91 @@ img{
     max-width: 1000px;
 }
 
+.in-game-card{
+    width: 117px;
+    height: 146px;
+    background-color: var(--card-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right:17px;
+    margin-left:17px;
+    margin-bottom: 34px;
+    box-sizing: border-box;
+    border: 1px solid var(--card-border-color);
+    border-radius: 5px;
+}
 
+.timer{
+    position: fixed;
+    right: 40px;
+    top: 30px;
+    width: 100px;
+    height: 50px;
+    background-color: white;
+}
 
 
 #end-game{
     display: none;
 }
+
+.background-end-game-div{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.end-game-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25vw;
+    min-width: 200px;
+    max-width: 400px;
+    height: 10vh;
+    max-height: 150px;
+    min-height: 120px;
+    background-color: var(--back-color);
+    border-radius: 5px;
+    justify-content: space-between;
+    border: 2px solid var(--card-border-color);
+}
+
+.end-game-box>#congrats{
+    margin-top: 10px;
+    color: var(--text-color);
+    font-size: 25px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.end-game-box>#play-again-button{
+    background-color: var(--card-color);
+    border: 1px solid var(--card-border-color);
+    box-sizing: border-box;
+    width: 50%;
+    margin-bottom: 4%;
+    border-radius: 8px;
+    height: 25px;
+}
+.end-game-box>#play-again-button:hover{
+    transition: 100ms;
+    transform: translate(2px, -2px);
+    box-shadow: -1px 1px 0.5px rgb(142, 168, 118);
+}
+.end-game-box>#play-again-button:active{
+    transition: 50ms;
+    box-shadow: 0 0 0;
+    transform: translate(-1px, 1px);
+}
+.end-game-box>#play-again-button>ion-icon{
+    font-size: 12px;
+}
+
+
