@@ -282,3 +282,11 @@ img{
 .reset-display{
     display: none;
 }
+
+
+.front-card-hidden{
+    display: none;
+}
+.back-card-hidden{
+    display: none;
+}

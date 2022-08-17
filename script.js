@@ -1,6 +1,15 @@
 const mainInput = document.querySelector("input");
 const mainButton = document.querySelector(".game-settings button");
 
+function flipCard(element)
+{
+    //Run Animation
+
+    //Toggle Card
+    element.querySelector(".front-card").classList.toggle('front-card-hidden');
+    element.querySelector('.back-card').classList.toggle('back-card-hidden');
+}
+
 function shuffleArray(array)
 {
     let tmp;
@@ -20,11 +29,22 @@ function createCards(cardNumber)
     let cards = new Array(cardNumber);
     for (let i = 0; i < cardNumber; i = i + 2)
     {
-        cards[i] = [`<div class='in-game-card front card${i/2}'><img src='arquivos/front.png' alt=''></div>`, `<div class='in-game-card back card${i/2}'><img src='arquivos/gif${i/2}.png' alt=''></div>`];
-        cards[i + 1] = [`<div class='in-game-card front card${i/2}'><img src='arquivos/front.png' alt=></div>`, `<div class='in-game-card back card${i/2}'><img src='arquivos/gif${i/2}.png' alt=''></div>`];
+        cards[i] = [`<div onClick="flipCard(this)" class='in-game-card card${i/2} pair1'><img class='front-card' src='arquivos/front.png' alt=''><img class='back-card back-card-hidden' src='arquivos/gif${i/2}.gif' alt=''></div>`];
+        cards[i + 1] = [`<div onClick="flipCard(this)" class='in-game-card card${i/2} pair2'><img class='front-card' src='arquivos/front.png' alt=''><img class='back-card back-card-hidden' src='arquivos/gif${i/2}.gif' alt=''></div>`];
     }
     const shuffledArray = shuffleArray(cards);
     return shuffledArray;
+}
+
+function printCards(array)
+{
+    let bigText = "";
+    let gameTable = document.querySelector(".in-game-background main");
+    for(let i = 0; i < array.length; i++)
+    {
+        bigText += array[i];
+    }
+    gameTable.innerHTML = bigText;
 }
 
 function startGame(cardNumber)
@@ -33,6 +53,7 @@ function startGame(cardNumber)
     document.querySelector("#in-game").style.display = 'block';
     let cards = createCards(cardNumber);
     printCards(cards);
+    //startTimer();  TO-DO
 }
 
 function helpStartGame()
