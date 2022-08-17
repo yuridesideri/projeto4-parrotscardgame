@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <section id="new-game">
+    <section id="new-game" style="display: block;">
         <section class="background-scenario">
             <header>PARROT CARD GAME</header>
             <main>
@@ -35,26 +35,27 @@
             </section>
         </section>
     </section>
-    <section id="in-game">
+    <section id="in-game" style="display: none;">
         <section class="in-game-background">
             <header>PARROT CARD GAME</header>
             <main>
                 
             </main>
         </section>
-        <timer class="timer"></timer>
+        <div class="timer"></div>
     </section>
-    <section id="end-game">
+    <section id="end-game" style="display: none;">
         <section class="background-end-game-div">
             <div class="end-game-box">
                 <h2 id="congrats">Congratulations!</h2>
                 <h2 id="time-spent">You nailed it in *time*</h2>
-                <button id="play-again-button">Play Again <ion-icon name="refresh-outline"></ion-icon> </button>
+                <button id="play-again-button" onclick="resetGame()">Play Again <ion-icon name="refresh-outline"></ion-icon> </button>
             </div>
         </section>
     </section>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="script.js"></script>
+    <div class="reset-display tmp-div"></div>
 </body>
 </html>
