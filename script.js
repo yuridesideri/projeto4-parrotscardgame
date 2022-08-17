@@ -42,8 +42,14 @@ function toggleTimer(toggle)
     }
     if (toggle === 'stop')
     {
-
-        document.querySelector('#time-spent').innerHTML= `You nailed it in ${timerDiv.innerHTML.split(':')[0]} mins and ${timerDiv.innerHTML.split(':')[1]} secs`;
+        if (min === 0)
+        {
+            document.querySelector('#time-spent').innerHTML= `You nailed it in ${timerDiv.innerHTML.split(':')[0]} mins and ${timerDiv.innerHTML.split(':')[1]} secs`;
+        }
+        else
+        {
+            document.querySelector('#time-spent').innerHTML= `You nailed it in ${timerDiv.innerHTML.split(':')[0]} mins ${timerDiv.innerHTML.split(':')[0]} secs and ${timerDiv.innerHTML.split(':')[1]} milisecs`;
+        }
         clearInterval(togTimer);
         min = 0, sec = 0, ms = 0;
         timerDiv.innerHTML = '';

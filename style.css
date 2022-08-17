@@ -33,13 +33,15 @@
     justify-content: center;
     align-items: center;
     background-color: var(--back-color);
-    height: 100vh; /*Obs: Change to dynamic on mobile phone*/
+    min-height: 100vh;
+    height: 100%; /*Obs: Change to dynamic on mobile phone*/
 }
 
 .background-scenario>header{
     color: var(--text-color);
     font-weight: 700;
     font-size: 56px;
+    margin-top: 40px;
     top: 40px;
     margin-bottom: 7.47vh;
     text-align: center;
@@ -162,11 +164,13 @@ img{
     justify-content: center;
     align-items: center;
     background-color: var(--back-color);
-    height: 100vh; /*Obs: Change to dynamic on mobile phone*/
+    min-height: 100vh;
+    height: 100%; /*Obs: Change to dynamic on mobile phone*/
 }
 
 .in-game-background>header{
     color: var(--text-color);
+    margin-top: 80px;
     font-weight: 700;
     font-size: 56px;
     top: 40px;
@@ -222,11 +226,11 @@ img{
 
 .timer{
     position: fixed;
-    right: 40px;
+    right: 20px;
     top: 30px;
-    width: 100px;
-    height: 50px;
-    display:flex;
+    width: 80px;
+    height: 20px;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -326,4 +330,39 @@ img{
 
 .found-pair{
     pointer-events: none;
+}
+
+/* media querys */
+@media(max-width: 570px)
+{
+    .in-game-background>header{
+        font-size: 40px;
+    }
+    .background-scenario>header{
+        font-size: 40px;
+    }
+}
+@media (max-width: 400px)
+{
+    .in-game-background>header{
+        font-size: 36px;
+    }
+    .background-scenario>header{
+        font-size: 36px;
+    }
+}
+@media (max-width: 335px)
+{
+    .in-game-background>header{
+        width: 312px;
+        margin-top: 40px;
+        box-sizing: border-box;
+        margin-right: 12px;
+        margin-left: 12px;
+    }
+
+    .timer{
+        right: 0px;
+        top: 2px;
+    }
 }
