@@ -3,11 +3,8 @@ const mainButton = document.querySelector(".game-settings button");
 
 function flipCard(element)
 {
-    //Run Animation
-
-    //Toggle Card
-    element.querySelector(".front-card").classList.toggle('front-card-hidden');
-    element.querySelector('.back-card').classList.toggle('back-card-hidden');
+    element.children[0].classList.toggle('fronty');
+    element.children[1].classList.toggle('back-image');
 }
 
 function shuffleArray(array)
@@ -29,8 +26,8 @@ function createCards(cardNumber)
     let cards = new Array(cardNumber);
     for (let i = 0; i < cardNumber; i = i + 2)
     {
-        cards[i] = [`<div onClick="flipCard(this)" class='in-game-card card${i/2} pair1'><img class='front-card' src='arquivos/front.png' alt=''><img class='back-card back-card-hidden' src='arquivos/gif${i/2}.gif' alt=''></div>`];
-        cards[i + 1] = [`<div onClick="flipCard(this)" class='in-game-card card${i/2} pair2'><img class='front-card' src='arquivos/front.png' alt=''><img class='back-card back-card-hidden' src='arquivos/gif${i/2}.gif' alt=''></div>`];
+        cards[i] = [`<div onclick="flipCard(this)" class="in-game-card card${i/2} pair1"><div class='front-image face'><img src='arquivos/front.png' alt=''></div> <div class='back-image face'><img src='arquivos/gif${i/2}.gif' alt=''></div></div>`];
+        cards[i + 1] = [`<div onclick="flipCard(this)" class="in-game-card card${i/2} pair2"><div class='front-image face'><img src='arquivos/front.png' alt=''></div> <div class='back-image face'><img src='arquivos/gif${i/2}.gif' alt=''></div></div>`];
     }
     const shuffledArray = shuffleArray(cards);
     return shuffledArray;

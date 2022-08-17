@@ -16,6 +16,10 @@
     100% {color: none;}
 }
 
+@keyframes flip-card{
+
+}
+
 #new-game{
     display: block;
     width: 100%;
@@ -183,16 +187,37 @@ img{
 .in-game-card{
     width: 117px;
     height: 146px;
-    background-color: var(--card-color);
     display: flex;
     justify-content: center;
     align-items: center;
     margin-right:17px;
     margin-left:17px;
     margin-bottom: 34px;
+    position: relative;
+}
+
+.face:hover{
+    transition: 0;
+    border: 4px solid var(--card-border-color);
+    box-sizing: border-box;
+    border-radius: 3px;
+}
+
+.face{
+    width: 100%;
+    height: 100%;
+    background-color: var(--card-color);
     box-sizing: border-box;
     border: 1px solid var(--card-border-color);
     border-radius: 5px;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    transition: transform .5s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    overflow: hidden;
 }
 
 .timer{
@@ -283,10 +308,25 @@ img{
     display: none;
 }
 
+.back-image{
+    transform: rotateY(180deg);
+}
 
-.front-card-hidden{
-    display: none;
+.fronty{
+    transform: rotateY(-180deg)
 }
-.back-card-hidden{
-    display: none;
-}
+
+
+
+/* .back-face {
+    transform: rotateY(180deg);
+  }
+
+.card:hover .back-face {
+    transform: rotateY(0deg);
+  }
+
+.card:hover .front-face {
+    transform: rotateY(-180deg);
+  }
+  */
