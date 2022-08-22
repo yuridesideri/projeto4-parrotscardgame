@@ -9,6 +9,7 @@ let min = 0, sec = 0, ms = 0;
 let timer = [min, sec, ms];
 let togTimer;
 let timerShowSpeed = 19; //speed in ms
+let clicks = 0;
  
 function printTimer()
 {
@@ -44,11 +45,11 @@ function toggleTimer(toggle)
     {
         if (min === 0)
         {
-            document.querySelector('#time-spent').innerHTML= `You nailed it in ${timerDiv.innerHTML.split(':')[0]} mins and ${timerDiv.innerHTML.split(':')[1]} secs`;
+            document.querySelector('#time-spent').innerHTML= `You nailed it in ${clicks} moves that took you ${timerDiv.innerHTML.split(':')[0]} mins and ${timerDiv.innerHTML.split(':')[1]} secs`;
         }
         else
         {
-            document.querySelector('#time-spent').innerHTML= `You nailed it in ${timerDiv.innerHTML.split(':')[0]} mins ${timerDiv.innerHTML.split(':')[0]} secs and ${timerDiv.innerHTML.split(':')[1]} milisecs`;
+            document.querySelector('#time-spent').innerHTML= `You nailed it in ${clicks} moves that took you ${timerDiv.innerHTML.split(':')[0]} mins ${timerDiv.innerHTML.split(':')[0]} secs and ${timerDiv.innerHTML.split(':')[1]} milisecs`;
         }
         clearInterval(togTimer);
         min = 0, sec = 0, ms = 0;
@@ -70,6 +71,7 @@ function resetGame()
     pairs = 0;
     tmpPair = document.querySelector('.tmp-div');
     pairSum = 0;
+    clicks = 0;
 }
 
 function toggleUnclickable()
@@ -203,6 +205,7 @@ function checkStart()
 function gameTick(element)
 {
     toggleUnclickable();
+    clicks++;
 
     if (flipCard(element) === '+1pair')
     {
